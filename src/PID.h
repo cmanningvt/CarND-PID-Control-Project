@@ -1,3 +1,8 @@
+// for portability of M_PI (Vis Studio, MinGW, etc.)
+#ifndef M_PI
+const double M_PI = 3.14159265358979323846;
+#endif
+
 #ifndef PID_H
 #define PID_H
 
