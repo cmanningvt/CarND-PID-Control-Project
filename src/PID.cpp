@@ -2,10 +2,6 @@
 
 using namespace std;
 
-/*
-* TODO: Complete the PID class.
-*/
-
 PID::PID() {}
 
 PID::~PID() {}
@@ -23,12 +19,18 @@ void PID::Init(double Kp, double Ki, double Kd) {
 }
 
 void PID::UpdateError(double cte) {
+  // Add error to i_error
   PID::i_error += cte;
+
+  // Calculate error difference for d_error
   PID::d_error = cte - PID::p_error;
+
+  // Update p_error
   PID::p_error = cte;
 }
 
 double PID::TotalError() {
+  // Calculate controller output
   return -PID::Kp * PID::p_error - PID::Ki * PID::i_error - PID::Kd * PID::d_error;
 }
 
