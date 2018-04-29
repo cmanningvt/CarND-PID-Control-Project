@@ -26,5 +26,6 @@ void PID::UpdateError(double cte) {
 }
 
 double PID::TotalError() {
+  return PID::Kp * PID::p_error + PID::Ki * PID::i_error + PID::Kd * PID::d_error;
 }
 
